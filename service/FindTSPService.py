@@ -1,10 +1,10 @@
 import math
 
 
-class FindTSPService():
+class FindTSPService:
 
     @staticmethod
-    def find_prime(number):
+    def find_prime(number: int) -> bool:
         if number == 2 or number == 3:
             return True
         sq = int(math.sqrt(number))
@@ -14,10 +14,11 @@ class FindTSPService():
         return True
 
     @staticmethod
-    def find_tsp_service(number):
+    def find_tsp_service(number: int) -> bool:
         if number <= 1:
             return False
-        flag = FindTSPService().find_prime(number)
+
+        flag = FindTSPService.find_prime(number)
         if flag:
             tmp = number
             count = 0
@@ -27,7 +28,7 @@ class FindTSPService():
                 print(tmp)
                 if tmp <= 1:
                     return False
-                flag = FindTSPService().find_prime(number)
+                flag = FindTSPService.find_prime(number)
                 if not flag:
                     return False
                 tmp = int(tmp / 10)
@@ -40,7 +41,7 @@ class FindTSPService():
                 count = count - 1
                 if tmp <= 1:
                     return False
-                flag = FindTSPService().find_prime(number)
+                flag = FindTSPService.find_prime(number)
                 if not flag:
                     return False
                 if int(tmp / 10) == 0:

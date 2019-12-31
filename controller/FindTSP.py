@@ -7,8 +7,7 @@ class FindTSP(Resource):
 
     def get(self):
         number = int(request.args.get('number'))
-        flag=FindTSPService()
-        if flag.find_tsp_service(number):
+        if FindTSPService.find_tsp_service(number):
             return {'status': "true"}
         else:
             return {'status':"false"}
