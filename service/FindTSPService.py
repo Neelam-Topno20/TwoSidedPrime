@@ -8,7 +8,6 @@ class FindTSPService:
         if number == 2 or number == 3:
             return True
         sq = int(math.sqrt(number))
-        print(sq)
         for i in range(2, sq + 1):
             if number % i == 0:
                 return False
@@ -18,7 +17,6 @@ class FindTSPService:
     def find_tsp_service(number: int) -> bool:
         if number <= 1:
             return False
-
         flag = FindTSPService.find_prime(number)
         if flag:
             tmp = number
@@ -26,7 +24,6 @@ class FindTSPService:
             tmp = int(tmp / 10)
             while tmp != 0:
                 count = count + 1
-                print(tmp)
                 if tmp <= 1:
                     return False
                 flag = FindTSPService.find_prime(tmp)
@@ -40,7 +37,6 @@ class FindTSPService:
                 tmp = 0
             while tmp != 0:
                 count = count - 1
-                print(tmp)
                 if tmp <= 1:
                     return False
                 flag = FindTSPService.find_prime(tmp)
