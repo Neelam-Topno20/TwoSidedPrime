@@ -9,8 +9,13 @@ class FindTSP(Resource):
     # Get method which takes input integer as params to calculate two sided prime
     # Sample URL - http://127.0.0.1:5000/pyrestapi/FindTSP?number=53
     def get(self):
-        number = int(request.args.get('number'))
-        if FindTSPService.find_tsp_service(number):
-            return {'Two Sided Prime': "true"}
-        else:
-            return {'Two Sided Prime': "false"}
+        try:
+            number = int(request.args.get('number'))
+            if FindTSPService.find_tsp_service(number):
+                return {'Two Sided Prime': "true"}
+            else:
+                return {'Two Sided Prime': "false"}
+        except ValueError:
+            return {'message' :"Invalid value passed. Pass Integer value"}
+
+
